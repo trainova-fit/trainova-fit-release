@@ -1,0 +1,6 @@
+*.jks
+*.keystore
+key.properties
+google-services.json
+.env
+*.apk
