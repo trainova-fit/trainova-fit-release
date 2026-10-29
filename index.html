@@ -62,18 +62,21 @@ p{margin:0}
 .hero h1{font-size:clamp(28px, 7.6vw, 64px);line-height:1.06;font-weight:800;letter-spacing:-.03em}
 .hero h1 em{font-style:normal;color:var(--accent)}
 .hero .sub{margin-top:18px;font-size:clamp(17px, 2vw, 21px);line-height:1.45;color:var(--body);max-width:40ch;font-weight:500}
-.hero-body{margin-top:48px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:48px;align-items:start}
-.cta{display:flex;flex-direction:column;gap:12px;align-items:flex-start}
-.btn{display:inline-flex;align-items:center;gap:14px;padding:14px 24px 14px 14px;border-radius:16px;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;font-size:18px;line-height:1.2;transition:background .15s}
+.hero-body{margin-top:40px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:56px;align-items:center}
+.cta{display:flex;flex-direction:column;gap:16px;align-items:flex-start}
+.cta .alt-links{margin-top:-8px}
+.btn{display:inline-flex;align-items:center;gap:16px;padding:16px 28px 16px 16px;border-radius:16px;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;font-size:18px;line-height:1.2;transition:background .15s}
 .btn:hover{background:#1F7BEF;color:#fff}
+.btn.is-soon,.btn.is-soon:hover{background:var(--panel);color:var(--ink);border:1px solid var(--line);cursor:default}
 .btn img{width:44px;height:44px;border-radius:11px}
-.btn small{display:block;font-weight:500;font-size:13px;opacity:.85}
+.btn > span{display:flex;flex-direction:column;gap:5px}
+.btn small{display:block;font-weight:500;font-size:13.5px;line-height:1.3;opacity:.85}
 .specs{display:flex;flex-wrap:wrap;gap:6px 14px;color:var(--muted);font-size:14px}
 .specs span+span::before{content:"·";margin-right:14px;color:var(--line)}
 .specs .mono{color:var(--body)}
 .alt-links{font-size:14px;color:var(--muted)}
-.routine{font-size:15px;line-height:1.5;color:var(--body);max-width:44ch;padding-top:4px}
-.handoff{margin-top:36px;display:flex;align-items:flex-end;gap:20px}
+.routine{font-size:15px;line-height:1.5;color:var(--body);max-width:44ch;padding-top:8px}
+.handoff{margin-top:40px;display:flex;align-items:flex-end;gap:20px}
 .qr-card{display:flex;align-items:center;gap:16px;padding:14px 18px 14px 14px;border-radius:18px;background:var(--panel)}
 .qr{width:148px;height:148px;background:#fff;border-radius:10px;flex-shrink:0;overflow:hidden}
 .qr svg{display:block;width:100%;height:100%}
@@ -92,13 +95,13 @@ p{margin:0}
 
 /* Sections */
 .section{padding-block:72px;border-top:1px solid var(--line)}
-.section-head{display:flex;flex-direction:column;gap:10px;margin-bottom:36px;max-width:640px}
+.section-head{display:flex;flex-direction:column;gap:12px;margin-bottom:40px;max-width:640px}
 .section-head h2{font-size:clamp(26px, 3.4vw, 36px);line-height:1.15;font-weight:800}
 .section-head p{font-size:17px}
 
 /* Install steps */
 .steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
-.step{position:relative;display:grid;grid-template-columns:44px minmax(0,1fr) 320px;gap:20px 24px;padding-block:24px;align-items:start}
+.step{position:relative;display:grid;grid-template-columns:44px minmax(0,560px) 320px;gap:20px 48px;padding-block:24px;align-items:start;justify-content:start}
 .step h3{padding-top:4px}
 /* connector: runs from each number down to the next one */
 .step:not(:last-child)::before{content:"";position:absolute;left:17px;width:2px;top:calc(24px + 36px + 6px);bottom:calc(-24px + 6px);background:var(--accent);opacity:.45;border-radius:1px}
@@ -113,7 +116,7 @@ p{margin:0}
 .note b{color:var(--body)}
 
 /* Android prompt replicas */
-.shot{background:var(--sheet);color:var(--sheet-ink);border-radius:22px;padding:18px 18px 14px;font-family:var(--f-app);font-size:13px;line-height:1.45;width:100%;max-width:320px;justify-self:end}
+.shot{background:var(--sheet);color:var(--sheet-ink);border-radius:22px;padding:18px 18px 14px;font-family:var(--f-app);font-size:13px;line-height:1.45;width:100%;max-width:320px;justify-self:start}
 .shot .t{font-size:15px;font-weight:500;margin-bottom:4px}
 .shot .d{color:var(--sheet-sub);font-size:12.5px}
 .shot .row{display:flex;justify-content:flex-end;gap:6px;margin-top:14px}
@@ -133,7 +136,7 @@ p{margin:0}
 .shot .stack .b.tap{background:#2B5BC8;color:#fff}
 
 /* Stuck box */
-.stuck{margin-top:40px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:28px;align-items:center;padding:28px;border-radius:24px;background:var(--panel)}
+.stuck{margin-top:48px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:28px;align-items:center;padding:28px;border-radius:24px;background:var(--panel)}
 .stuck img{width:110px;height:auto}
 .stuck h3{font-size:20px;margin-bottom:12px}
 .stuck dl{margin:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px 28px}
@@ -195,7 +198,9 @@ p{margin:0}
   .phones{gap:16px}
   .handoff{display:none}
   .stuck{grid-template-columns:minmax(0,1fr)}
-  .stuck img{width:84px}
+  .stuck img{width:64px}
+  .hero-body{margin-top:32px}
+  .section-head{margin-bottom:32px}
   .stuck dl{grid-template-columns:minmax(0,1fr)}
   .foot{grid-template-columns:minmax(0,1fr)}
   .foot .right{text-align:left}
@@ -711,8 +716,11 @@ const CONFIG = {
   repo: "trainova-fit-release", // repository name
   apkName: "trainova-fit.apk",// keep this filename the same on every release
   version: "1.0.0",
-  size: "48 MB",
-  minAndroid: "11"
+  size: "",                   // fill in on launch day, e.g. "62 MB" (hidden while empty or closed)
+  minAndroid: "11",
+  launchDate: "November 5, 2026",
+  // false = button shows "Coming soon" with the launch date and links nowhere. Set to true on launch day.
+  downloadOpen: false
 };
 /* ======================================= */
 
@@ -728,6 +736,23 @@ const CONFIG = {
     if (links[k]) a.href = links[k];
     if (/^https?:/.test(a.href)) { a.target = "_blank"; a.rel = "noopener"; }
   });
+
+  // Download not open yet: turn the button into a "Coming soon" label
+  if (CONFIG.downloadOpen === false) {
+    document.querySelectorAll('[data-href="apk"]').forEach(function (a) {
+      a.removeAttribute("href"); a.removeAttribute("target");
+      a.setAttribute("aria-disabled", "true");
+      a.classList.add("is-soon");
+      var label = a.querySelector("span");
+      if (label) label.innerHTML = "Coming soon<small>Download available <span style=\"white-space:nowrap\">" + CONFIG.launchDate + "</span></small>";
+    });
+  }
+
+  // Hide the size until the real release is out
+  if (CONFIG.downloadOpen === false || !CONFIG.size) {
+    var sz = document.querySelector('[data-k="size"]');
+    if (sz && sz.parentElement) sz.parentElement.hidden = true;
+  }
   document.querySelectorAll("[data-k]").forEach(function (el) {
     const k = el.getAttribute("data-k");
     if (CONFIG[k] != null) el.textContent = CONFIG[k];
