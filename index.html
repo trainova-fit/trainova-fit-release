@@ -95,7 +95,7 @@
   transition:fill .28s ease,stroke .28s ease;
 }
 body,.brand,.brand .rule,.section,.foot-band,.qr-card,.stuck,.num,.exercises,.exercises li,
-.copy,.btn,.btn.is-soon,.top-meta a,.theme-toggle,.faq details,.diagram,
+.copy,.btn,.btn.is-soon,.btn.is-checking,.top-meta a,.theme-toggle,.faq details,.diagram,
 h1,h2,h3,p,a,.label,.tag,.specs,.routine,.alt-links,.note,.privacy,.tips b,.faq summary,.foot{
   transition:background-color .28s ease,color .28s ease,border-color .28s ease;
 }
@@ -132,7 +132,7 @@ h1,h2,h3,p,a,.label,.tag,.specs,.routine,.alt-links,.note,.privacy,.tips b,.faq 
   *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;
     animation-iteration-count:1!important;transition-duration:.01ms!important}
 }
-\n*{box-sizing:border-box}
+*{box-sizing:border-box}
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{margin:0;background:var(--navy);color:var(--body);font-family:var(--f-sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
@@ -168,14 +168,19 @@ p{margin:0}
 .cta .alt-links{margin-top:-8px}
 .btn{display:inline-flex;align-items:center;gap:16px;padding:16px 28px 16px 16px;border-radius:16px;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;font-size:18px;line-height:1.2;transition:background .15s}
 .btn:hover{background:#1F7BEF;color:#fff}
-.btn.is-soon,.btn.is-soon:hover{background:var(--panel);color:var(--ink);border:1px solid var(--line);cursor:default}
+.btn.is-soon,.btn.is-soon:hover,.btn.is-checking,.btn.is-checking:hover{background:var(--panel);color:var(--ink);border:1px solid var(--line);cursor:default}
 .btn img{width:44px;height:44px;border-radius:11px}
 .btn > span{display:flex;flex-direction:column;gap:5px}
 .btn small{display:block;font-weight:500;font-size:13.5px;line-height:1.3;opacity:.85}
 .specs{display:flex;flex-wrap:wrap;gap:6px 14px;color:var(--muted);font-size:14px}
-.specs span+span::before{content:"·";margin-right:14px;color:var(--line)}
+.specs > span:not([hidden]) ~ span:not([hidden])::before{content:"·";margin-right:14px;color:var(--line)}
 .specs .mono{color:var(--body)}
 .alt-links{font-size:14px;color:var(--muted)}
+.whatsnew{font-size:14px;line-height:1.5;color:var(--body);max-width:44ch}
+.whatsnew[hidden]{display:none}
+.whatsnew .wn-label{display:block;font-weight:600;color:var(--ink);margin-bottom:2px}
+.whatsnew .wn-text{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.whatsnew a{display:inline-block;margin-top:6px;color:var(--accent-ink);font-weight:600}
 .routine{font-size:15px;line-height:1.5;color:var(--body);max-width:44ch;padding-top:8px}
 .handoff{margin-top:40px;display:flex;align-items:flex-end;gap:20px}
 .qr-card{display:flex;align-items:center;gap:16px;padding:14px 18px 14px 14px;border-radius:18px;background:var(--panel)}
@@ -260,6 +265,7 @@ p{margin:0}
 .privacy{display:grid;grid-template-columns:repeat(3, minmax(0,1fr));gap:32px}
 .privacy h3{font-size:17px;margin-bottom:8px}
 .privacy p{font-size:15px}
+.privacy b{color:var(--ink);font-weight:600}
 
 /* FAQ */
 .faq{max-width:760px}
@@ -310,7 +316,7 @@ p{margin:0}
 }
 @media (max-width:480px){
   .specs{flex-direction:column;gap:2px}
-  .specs span+span::before{content:none}
+  .specs > span:not([hidden]) ~ span:not([hidden])::before{content:none}
   .phones{flex-direction:column;align-items:center;gap:36px}
   .phone-slot{--s:1.2}
   .phone-slot.lower{margin-top:0}
@@ -358,9 +364,14 @@ p{margin:0}
           <span>Download APK<small>Trainova Fit for Android</small></span>
         </a>
         <p class="specs">
-          <span>Version <span class="mono" data-k="version" data-confirm>1.0.0</span></span>
-          <span>Size <span class="mono" data-k="size" data-confirm>48 MB</span></span>
-          <span>Android <span data-k="minAndroid" data-confirm>11</span> and above</span>
+          <span hidden>Version <span class="mono" data-k="version"></span></span>
+          <span hidden>Size <span class="mono" data-k="size"></span></span>
+          <span>Android <span data-k="minAndroid">10</span> and above</span>
+        </p>
+        <p class="whatsnew" id="whatsnew" hidden>
+          <span class="wn-label">What's new</span>
+          <span class="wn-text" id="whatsnew-text"></span>
+          <a data-href="releases" href="https://github.com/trainova-fit/trainova-fit-release/releases">All releases</a>
         </p>
         <p class="routine">Make it part of your routine. Train with it for a month and see how your form improves.</p>
         <p class="alt-links">New to installing APKs? <a href="#install">Follow the 5 steps below.</a></p>
@@ -579,6 +590,7 @@ p{margin:0}
           <div>
             <h3>Open the app and start training</h3>
             <p>Open Trainova Fit, explore the app, and start your first exercise. When asked, allow camera access and choose <b>While using the app</b>, so Trainova Fit can see your form.</p>
+            <p class="note">Future updates arrive inside the app, so you only need this page for the first install.</p>
           </div>
           <div class="shot" aria-hidden="true">
             <p class="t" style="text-align:center">Allow <b>Trainova Fit</b> to take pictures and record video?</p>
@@ -592,10 +604,12 @@ p{margin:0}
         <div>
           <h3 id="stuck-title">Stuck?</h3>
           <dl>
-            <div><dt>"App not installed"</dt><dd>You may have an older version installed. Uninstall it first, or free up some storage, then try again.</dd></div>
+            <div><dt>"App not installed"</dt><dd>There may not be enough free storage, or an early test build is still installed. Free up some space or uninstall the old copy, then try again.</dd></div>
             <div><dt>Nothing happens when I tap the file</dt><dd>Open it from the <b>Files</b> app instead of the browser, and allow that app in step 3.</dd></div>
+            <div><dt>The update failed in the app</dt><dd>Check that you're online and have free storage, then try again from <b>Settings → System → Updates</b>. Still failing? Download the newest version from this page and install it over the old one. Your data stays.</dd></div>
+            <div><dt>Asked to uninstall when updating</dt><dd>You shouldn't be. Updates install over the current app. It only happens with early test builds, which were signed with a different key. Uninstall that copy once, install the latest version, and later updates work normally.</dd></div>
             <div><dt>I have an iPhone</dt><dd>Trainova Fit is Android only for now.</dd></div>
-            <div><dt>Something else</dt><dd>Email <span class="mono">trainovafitsupport@gmail.com</span> with your phone model and a screenshot.</dd></div>
+            <div><dt>Something else</dt><dd>Email <span class="mono">trainovafitsupport@gmail.com</span> with your phone model, Android version and a screenshot.</dd></div>
           </dl>
         </div>
       </aside>
@@ -755,11 +769,11 @@ p{margin:0}
         </div>
         <div>
           <h3>Your workout data</h3>
-          <p data-confirm>Your sets, reps, form scores, weights and RPE are saved so you can review your progress over time.</p>
+          <p data-confirm>Your sets, reps, form scores, weights and RPE are saved so you can review your progress over time. Checking for updates only asks GitHub for the latest version and sends none of this.</p>
         </div>
         <div>
           <h3>Permissions</h3>
-          <p data-confirm>Camera is the only permission Trainova Fit asks for. Voice coaching plays through your speaker, so the app doesn't use your microphone.</p>
+          <p data-confirm>Trainova Fit asks for two permissions. <b>Camera</b> is used to track your joints while you train. <b>Install unknown apps</b> is asked once, only so the app can install its own updates. Voice coaching plays through your speaker, so the app doesn't use your microphone.</p>
         </div>
       </div>
     </div>
@@ -774,11 +788,12 @@ p{margin:0}
       <div class="faq">
         <details>
           <summary>How do I update the app?</summary>
-          <p>The app doesn't update itself. Come back to this page, download the latest APK, and install it over the old one. <span data-confirm>Your saved workouts stay, as long as you don't uninstall first.</span> Check <a data-href="releases" href="https://github.com/trainova-fit/trainova-fit-release/releases">all releases</a> to see what changed.</p>
+          <p>Updates happen inside the app. Trainova Fit checks for a new version when you open it and shows an Update dialog with what changed. Tap <b>Update</b>, then <b>Install</b> when Android asks. You can also check yourself at <b>Settings → System → Updates → Check for updates</b>.</p>
+          <p>You don't need to uninstall first, and <span data-confirm>your data stays</span>. The first time, Android asks you to allow installs from Trainova Fit. If an update ever fails, download the latest APK from this page and install it over the old one. <a data-href="releases" href="https://github.com/trainova-fit/trainova-fit-release/releases">All releases</a> lists every change.</p>
         </details>
         <details>
           <summary>Is the download safe?</summary>
-          <p>The APK is published on GitHub by the Trainova Fit team, and each release lists its SHA-256 checksum so you can check the file wasn't changed. The warnings you see come from Android, which shows them for every app installed outside the Play Store.</p>
+          <p>The APK is published on GitHub by the Trainova Fit team and signed with the team's own key. Each release lists its SHA-256 checksum so you can check the file wasn't changed, and Android only accepts an update signed with that same key. The warnings you see come from Android, which shows them for every app installed outside the Play Store.</p>
         </details>
         <details>
           <summary>Does it work on iPhone?</summary>
@@ -794,7 +809,7 @@ p{margin:0}
         </details>
         <details>
           <summary>I found a bug. Where do I report it?</summary>
-          <p>Email <span class="mono">trainovafitsupport@gmail.com</span>. Include your phone model, Android version and what you were doing when it happened. A screenshot helps a lot.</p>
+          <p>Use <b>Send feedback</b> in the app, or email <span class="mono">trainovafitsupport@gmail.com</span>. Either way, tell us your phone model, Android version and what you were doing when it happened. If you email, a screenshot helps a lot.</p>
         </details>
       </div>
     </div>
@@ -817,19 +832,15 @@ p{margin:0}
 </div>
 
 <script>
-/* ===== EDIT THESE FOR EACH RELEASE ===== */
+/* ===== SET ONCE. NOTHING TO EDIT PER RELEASE ===== */
 const CONFIG = {
-  owner: "trainova-fit",      // GitHub organization
+  owner: "trainova-fit",        // GitHub organization
   repo: "trainova-fit-release", // repository name
-  apkName: "trainova-fit.apk",// keep this filename the same on every release
-  version: "1.0.0",
-  size: "",                   // fill in on launch day, e.g. "62 MB" (hidden while empty or closed)
-  minAndroid: "11",
-  launchDate: "November 5, 2026",
-  // false = button shows "Coming soon" with the launch date and links nowhere. Set to true on launch day.
-  downloadOpen: false
+  apkName: "trainova-fit.apk",  // keep this filename the same on every release
+  minAndroid: "10"
 };
-/* ======================================= */
+/* The version, size and "What's new" come from the latest published GitHub release. */
+/* =================================================== */
 
 (function () {
   const root = document.documentElement;
@@ -869,26 +880,123 @@ const CONFIG = {
     if (/^https?:/.test(a.href)) { a.target = "_blank"; a.rel = "noopener"; }
   });
 
-  // Download not open yet: turn the button into a "Coming soon" label
-  if (CONFIG.downloadOpen === false) {
-    document.querySelectorAll('[data-href="apk"]').forEach(function (a) {
-      a.removeAttribute("href"); a.removeAttribute("target");
-      a.setAttribute("aria-disabled", "true");
-      a.classList.add("is-soon");
-      var label = a.querySelector("span");
-      if (label) label.innerHTML = "Coming soon<small>Download available <span style=\"white-space:nowrap\">" + CONFIG.launchDate + "</span></small>";
+  // ---- Latest release (read from GitHub, nothing to edit per release) ----
+  const apiUrl = "https://api.github.com/repos/" + CONFIG.owner + "/" + CONFIG.repo + "/releases/latest";
+  const cacheKey = "trainova-fit-release-v1";
+  const apkButtons = document.querySelectorAll('[data-href="apk"]');
+  const whatsNew = document.getElementById("whatsnew");
+  const whatsNewText = document.getElementById("whatsnew-text");
+
+  function setSpec(key, value) {
+    const el = document.querySelector('[data-k="' + key + '"]');
+    if (!el || !el.parentElement) return;
+    el.textContent = value || "";
+    el.parentElement.hidden = !value;
+  }
+
+  // "checking" and "soon" keep the button inert; "open" restores the real link
+  function setButton(state) {
+    apkButtons.forEach(function (a) {
+      const label = a.querySelector("span");
+      a.classList.remove("is-soon", "is-checking");
+      a.removeAttribute("aria-disabled");
+      if (state === "open") {
+        a.setAttribute("href", links.apk);
+        a.target = "_blank"; a.rel = "noopener";
+        if (label) label.innerHTML = "Download APK<small>Trainova Fit for Android</small>";
+      } else {
+        a.removeAttribute("href"); a.removeAttribute("target");
+        a.setAttribute("aria-disabled", "true");
+        a.classList.add(state === "soon" ? "is-soon" : "is-checking");
+        if (label) label.innerHTML = state === "soon"
+          ? "Coming soon<small>Trainova Fit for Android</small>"
+          : "Download APK<small>Checking the latest version…</small>";
+      }
     });
   }
 
-  // Hide the size until the real release is out
-  if (CONFIG.downloadOpen === false || !CONFIG.size) {
-    var sz = document.querySelector('[data-k="size"]');
-    if (sz && sz.parentElement) sz.parentElement.hidden = true;
+  // First bullet(s) above the first line that is exactly "---", as plain text
+  function summarize(body) {
+    if (typeof body !== "string") return "";
+    const lines = body.replace(/\r/g, "").split("\n");
+    const out = [];
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i].trim();
+      if (line === "---") break;
+      const clean = line
+        .replace(/^#{1,6}\s*/, "").replace(/^[-*•]\s+/, "").replace(/^\d+[.)]\s+/, "")
+        .replace(/\[([^\]]*)\]\([^)]*\)/g, "$1").replace(/[*_`>]/g, "").trim();
+      if (clean) out.push(clean);
+      if (out.length === 2) break;
+    }
+    let text = out.join(" · ");
+    if (text.length > 170) text = text.slice(0, 170).replace(/\s+\S*$/, "") + "…";
+    return text;
   }
+
+  function showInfo(info) {
+    setSpec("version", info && info.version);
+    setSpec("size", info && info.size);
+    const note = info && info.notes;
+    if (whatsNew && whatsNewText) {
+      whatsNewText.textContent = note || "";
+      whatsNew.hidden = !note;
+    }
+  }
+
+  // state: "found" (info), "none" (no published release / no APK), "error" (API unreachable)
+  function render(state, info) {
+    if (state === "none") { setButton("soon"); showInfo(null); return; }
+    setButton("open");
+    showInfo(state === "found" ? info : null);
+  }
+
+  function readCache() {
+    try {
+      const c = JSON.parse(sessionStorage.getItem(cacheKey) || "null");
+      if (c && c.info && Date.now() - c.t < 10 * 60 * 1000) return c.info;
+    } catch (e) {}
+    return null;
+  }
+  function writeCache(info) {
+    try { sessionStorage.setItem(cacheKey, JSON.stringify({ t: Date.now(), info: info })); } catch (e) {}
+  }
+
+  function readRelease() {
+    const cached = readCache();
+    if (cached) { render("found", cached); return; }
+    setButton("checking");
+    const ctl = typeof AbortController === "function" ? new AbortController() : null;
+    const timer = setTimeout(function () { if (ctl) ctl.abort(); }, 8000);
+    fetch(apiUrl, { headers: { "Accept": "application/vnd.github+json" }, signal: ctl ? ctl.signal : undefined })
+      .then(function (res) {
+        if (res.status === 404) return { state: "none" };
+        if (!res.ok) throw new Error("status " + res.status);
+        return res.json().then(function (rel) {
+          if (!rel || rel.draft || rel.prerelease) return { state: "none" };
+          const asset = (rel.assets || []).filter(function (x) { return x && x.name === CONFIG.apkName; })[0];
+          if (!asset) return { state: "none" };
+          const info = {
+            version: String(rel.tag_name || "").replace(/^v/i, ""),
+            size: asset.size > 0 ? Math.round(asset.size / 1e6) + " MB" : "",
+            notes: summarize(rel.body)
+          };
+          return { state: "found", info: info };
+        });
+      })
+      .then(function (r) {
+        if (r.state === "found") writeCache(r.info);
+        render(r.state, r.info);
+      })
+      .catch(function () { render("error"); })
+      .then(function () { clearTimeout(timer); });
+  }
+
   document.querySelectorAll("[data-k]").forEach(function (el) {
     const k = el.getAttribute("data-k");
-    if (CONFIG[k] != null) el.textContent = CONFIG[k];
+    if (k === "minAndroid" && CONFIG[k] != null) el.textContent = CONFIG[k];
   });
+  readRelease();
 
   // Copy email
   const btn = document.getElementById("copy-mail");
