@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trainova Fit: Real-time form feedback for Android</title>
+<meta name="description" content="Trainova Fit uses your phone camera to track your movement and gives real-time form feedback and voice coaching for five gym exercises.">
+<link rel="canonical" href="https://trainova-fit.github.io/trainova-fit-release/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Trainova Fit: Real-time form feedback for Android">
+<meta property="og:description" content="Understand your form. Train with confidence. Real-time form feedback and voice coaching for five gym exercises.">
+<meta property="og:url" content="https://trainova-fit.github.io/trainova-fit-release/">
+<meta property="og:image" content="https://trainova-fit.github.io/trainova-fit-release/assets/share/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#06122B" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/share/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/share/apple-touch-icon.png">
+<script>
+(function () {
+  var d = document.documentElement, t = null;
+  try { t = localStorage.getItem('trainova-fit-theme'); } catch (e) {}
+  if (t !== 'light' && t !== 'dark') t = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+  d.setAttribute('data-theme', t); d.className += ' js';
+  try {
+    var nav = performance.getEntriesByType('navigation')[0];
+    if (nav && nav.type === 'reload') {
+      if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+      if (location.hash) {
+        history.replaceState(null, '', location.pathname + location.search);
+        addEventListener('load', function () { scrollTo({ top: 0, behavior: 'instant' }); });
+      }
+    }
+  } catch (e) {}
+})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body id="top">
+<a class="skip" href="#main">Skip to content</a>
+<header class="hdr"><div class="wrap"><a class="brand" href="#top" aria-label="Trainova Fit home"><img class="w-dark" src="assets/brand/wordmark-white.png" alt="Trainova Fit" width="150" height="26"><img class="w-light" src="assets/brand/wordmark-navy.png" alt="" width="150" height="26"></a><nav class="nav" aria-label="Main"><ul><li><a href="#how-it-works">How it works</a></li><li><a href="#exercises">Exercises</a></li><li><a href="#setup">Setup</a></li><li><a href="#faq">FAQ</a></li><li><a href="#about">About</a></li><li><a class="dl-link" href="#download">Download</a></li></ul></nav><div class="hdr-tools"><a class="hdr-releases" data-href="releases" href="https://github.com/trainova-fit/trainova-fit-release/releases" target="_blank" rel="noopener">All releases<svg class="ext-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg><span class="vh"> (opens GitHub in a new tab)</span></a><button class="theme-btn" type="button" aria-label="Switch to light theme" title="Switch to light theme"><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/></svg><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button><button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu-panel"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></div></div><div class="menu-panel" id="menu-panel"><a href="#how-it-works">How it works</a><a href="#exercises">Exercises</a><a href="#setup">Setup</a><a href="#faq">FAQ</a><a href="#about">About</a><a class="ext" data-href="releases" href="https://github.com/trainova-fit/trainova-fit-release/releases" target="_blank" rel="noopener">All releases<svg class="ext-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg><span class="vh"> (opens GitHub in a new tab)</span></a><a class="dl-link" href="#download">Download</a></div></header>
+<main id="main">
+
+<section class="s-hero" aria-labelledby="hero-title">
+  <div class="wrap hero-grid">
+    <div class="hero-copy load">
+      <h1 id="hero-title" style="--i:0">Understand your form. <em>Train with confidence.</em></h1>
+      <p class="lede" style="--i:1">Trainova Fit uses your phone camera to track your movement and gives real-time form feedback and voice coaching for five gym exercises.</p>
+      <div class="hero-cta" style="--i:2"><a class="btn" data-apk  href="https://github.com/trainova-fit/trainova-fit-release/releases/latest/download/trainova-fit.apk"><svg class="dl" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg><span class="btn-label"><b data-label>Download APK</b><small>Trainova Fit Android</small></span></a><p class="hero-meta"><span data-spec hidden>Version <b data-k="version"></b></span><span data-spec hidden>Size <b data-k="size"></b></span><span>Android 10 and above</span></p></div>
+    </div>
+    <div class="hero-media load">
+      <div class="hero-phones" style="--i:3"><img class="p-dark" src="assets/hero/phones-dark.webp" width="868" height="1186" fetchpriority="high" alt="Trainova Fit on two phones. The front phone shows a live biceps curl with 10 reps, 1 mistake flagged and body keypoints drawn on the camera view. The phone behind it shows the set result with a form score estimate of 83 percent."><img class="p-light" src="assets/hero/phones-light.webp" width="868" height="1186" fetchpriority="high" alt="Trainova Fit on two phones. The front phone shows a live biceps curl with 10 reps, 1 mistake flagged and body keypoints drawn on the camera view. The phone behind it shows the set result with a form score estimate of 83 percent."></div>
+      <div class="facts" style="--i:4">
+        <div><b>Live</b><span>form feedback on named mistakes</span></div>
+        <div><b>Voice</b><span>corrections spoken out loud</span></div>
+        <div><b>Phone</b><span>camera only, no wearable needed</span></div>
+        <div><b>10+</b><span>Android version needed</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="s-ticker" aria-label="The five exercises">
+  <div class="wrap ticker-row">
+    <div class="marquee" data-marquee>
+      <ul class="marquee-track"><li>Biceps Curl</li><li>Lateral Raise</li><li>Barbell Row</li><li>Romanian Deadlift</li><li>Incline Dumbbell Press</li></ul>
+      <ul class="marquee-track" aria-hidden="true"><li>Biceps Curl</li><li>Lateral Raise</li><li>Barbell Row</li><li>Romanian Deadlift</li><li>Incline Dumbbell Press</li></ul>
+    </div>
+    <button class="marquee-toggle" type="button" aria-pressed="false" aria-label="Pause the scrolling exercise names"><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14M16 5v14"/></svg><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z"/></svg></button>
+  </div>
+</section>
+
+<section class="section s-how" id="how-it-works" aria-labelledby="how-title">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2 id="how-title">A set, from first rep to summary</h2>
+      <p class="lede">Prop your phone up, do your set, then read the summary. This sample set shows what the app screens look like.</p>
+    </div>
+    <div class="track">
+      <div class="stage">
+        <ol class="notes" aria-label="Steps of a set">
+          <li><button type="button">The camera tracks 33 points on your body, right on your phone</button></li>
+          <li><button type="button">Each rep is counted, and the coach calls out the number</button></li>
+          <li><button type="button">A named mistake is flagged once per rep, and the coach says it out loud</button></li>
+          <li><button type="button">When the set ends you get a summary</button></li>
+          <li><button type="button">See which reps were clean across all three sets</button></li>
+          <li><button type="button">Log how hard the set felt</button></li>
+        </ol>
+        <div class="phones">
+          <div>
+            <div class="demo-phone" id="demo-a"><div class="ph" role="img" aria-label="Live set screen: Biceps Curl, set 3 of 3, 10 reps counted against a target of 15, one mistake flagged, timer at 00:52, and a Good form message."><img class="s-dark" src="assets/phone-previews/live-base-dark.webp" alt="" width="940" height="2090" loading="lazy"><img class="s-light" src="assets/phone-previews/live-base-light.webp" alt="" width="940" height="2090" loading="lazy"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 2090" class="live-overlay" id="live-ov" aria-hidden="true">
+<style>
+.live-overlay .kp-arm line{transition:stroke .2s}.live-overlay .kp-arm circle{transition:fill .2s,stroke .2s}
+.live-overlay.is-flag .kp-arm line{stroke:#FF1744}.live-overlay.is-flag .kp-arm circle{fill:#FF1744;stroke:#C4001D}
+.live-overlay #toast{transition:opacity .25s,transform .25s;transform-box:fill-box;transform-origin:left bottom}
+.live-overlay #toast.is-hidden{opacity:0;transform:translateY(12px)}
+.live-overlay [data-kind] .ic{display:none}.live-overlay [data-kind="good"] .ic-good,.live-overlay [data-kind="flag"] .ic-flag{display:inline}
+</style>
+<g id="kp" transform="translate(20 20)"><g fill="none" stroke="#00E676" stroke-width="6" stroke-linecap="round"><line x1="295" y1="1072" x2="520" y2="1042"/><line x1="520" y1="1042" x2="585" y2="1202"/><line x1="585" y1="1202" x2="618" y2="1402"/><line x1="618" y1="1402" x2="638" y2="1414"/><line x1="618" y1="1402" x2="624" y2="1440"/><line x1="295" y1="1072" x2="345" y2="1392"/><line x1="520" y1="1042" x2="545" y2="1374"/><line x1="345" y1="1392" x2="545" y2="1374"/><line x1="345" y1="1392" x2="385" y2="1682"/><line x1="385" y1="1682" x2="415" y2="1964"/><line x1="415" y1="1964" x2="408" y2="2007"/><line x1="415" y1="1964" x2="465" y2="2030"/><line x1="545" y1="1374" x2="530" y2="1682"/><line x1="530" y1="1682" x2="555" y2="1954"/><line x1="555" y1="1954" x2="538" y2="1982"/><line x1="555" y1="1954" x2="580" y2="1998"/></g><g fill="#00E676" stroke="#00A152" stroke-width="3"><circle cx="295" cy="1072" r="12"/><circle cx="520" cy="1042" r="12"/><circle cx="585" cy="1202" r="12"/><circle cx="618" cy="1402" r="12"/><circle cx="638" cy="1414" r="8"/><circle cx="624" cy="1440" r="8"/><circle cx="345" cy="1392" r="12"/><circle cx="545" cy="1374" r="12"/><circle cx="385" cy="1682" r="12"/><circle cx="530" cy="1682" r="12"/><circle cx="415" cy="1964" r="12"/><circle cx="555" cy="1954" r="12"/><circle cx="408" cy="2007" r="8"/><circle cx="465" cy="2030" r="8"/><circle cx="538" cy="1982" r="8"/><circle cx="580" cy="1998" r="8"/></g><g fill="none" stroke="#00E676" class="kp-arm" stroke-width="6" stroke-linecap="round"><line x1="295" y1="1072" x2="302" y2="1252"/><line x1="302" y1="1252" x2="408" y2="1310"/><line x1="408" y1="1310" x2="438" y2="1300"/><line x1="408" y1="1310" x2="420" y2="1338"/></g><g fill="#00E676" stroke="#00A152" class="kp-arm" stroke-width="3"><circle cx="302" cy="1252" r="12"/><circle cx="408" cy="1310" r="12"/><circle cx="438" cy="1300" r="8"/><circle cx="420" cy="1338" r="8"/></g></g>
+<g id="timer" data-x="401.2" data-y="277.2" data-size="26.5" data-weight="600" data-align="left" fill="#FFFFFF"></g>
+<g id="mistakes" data-x="150.25" data-y="373.5" data-size="55" data-weight="600" data-align="left" fill="#FF5A3C"></g>
+<g id="reps" data-x="792" data-y="310.6" data-size="71.5" data-weight="500" data-align="center" fill="#FFFFFF"></g>
+<g id="toast" data-kind="good" class="is-hidden">
+<rect x="44.5" y="1945.5" width="354" height="110" rx="16" fill="#131715" fill-opacity=".92" stroke="#FFFFFF" stroke-opacity=".1" stroke-width="1.5"/>
+<g class="ic ic-good"><circle cx="80.5" cy="1980.5" r="13" fill="#22C55E"/><path d="M74 1981l5 5 9-10" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></g>
+<g class="ic ic-flag"><circle cx="80.5" cy="1980.5" r="13" fill="#FF1744"/><path d="M80.5 1973.5v8.5" stroke="#fff" stroke-width="3.6" stroke-linecap="round"/><circle cx="80.5" cy="1987.5" r="2.1" fill="#fff"/></g>
+<g id="toast-title" data-x="111.6" data-y="1990" data-size="27" data-weight="600" data-align="left" fill="#FFFFFF"></g>
+<g id="toast-msg" data-x="111.05" data-y="2029.1" data-size="25" data-weight="500" data-align="left" fill="#F2F2F2"></g>
+</g>
+</svg></div></div>
+            <ul class="m-notes"><li>The camera tracks 33 points on your body, right on your phone.</li><li>Each rep is counted, and the coach calls out the number.</li><li>A named mistake is flagged once per rep, and the coach says it out loud.</li></ul>
+          </div>
+          <div class="m-div"></div>
+          <div>
+            <div class="demo-phone" id="demo-b"><div class="ph" role="img" aria-label="Set result screen: Biceps Curl, final set complete, 15 reps, form score estimate 83 percent Good, 3 of 15 reps flagged, weight 5 kg, actual RPE 8."><img class="s-dark" src="assets/phone-previews/phone-result-dark.webp" alt="" width="940" height="2090" loading="lazy"><img class="s-light" src="assets/phone-previews/phone-result-light.webp" alt="" width="940" height="2090" loading="lazy"></div></div>
+            <ul class="m-notes"><li>When the set ends you get a summary.</li><li>See which reps were clean across all three sets.</li><li>Log how hard the set felt.</li></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="demo-caption">Sample set for illustration.</p>
+    <div class="steps3 stagger" style="margin-top:32px">
+      <div class="card"><span class="num" aria-hidden="true">1</span><h3>Position your phone</h3><p>Upright, 2 to 3 m away, whole body in frame.</p><a href="#setup">See the camera setup</a></div>
+      <div class="card"><span class="num" aria-hidden="true">2</span><h3>Do your set</h3><p>The camera tracks your movement and the app gives feedback and voice cues.</p></div>
+      <div class="card sig"><span class="num" aria-hidden="true">3</span><h3>Review the set</h3><p>Check reps, flagged corrections, weight and RPE.</p></div>
+    </div>
+    <h3 class="more-title">More in the app</h3>
+    <div class="more reveal">
+      <div><h3>A 30-day plan built for you</h3><p>Built from your fitness level, equipment and the areas you want to avoid.</p></div>
+      <div><h3>Progress and history</h3><p>Look back at your past sets and how your form changes.</p></div>
+      <div><h3>Streaks, XP and a leaderboard</h3><p>Earn achievements as you train. Your display name and XP show on the leaderboard.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section s-ex" id="exercises" aria-labelledby="ex-title">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2 id="ex-title">Five exercises, and the muscles they work</h2>
+      <p class="lede">Pick an exercise to see its muscles and the form mistakes the app checks for. Tap a muscle on the map, or a muscle name, to pin it.</p>
+    </div>
+    <div class="ex-grid">
+      <div class="ex-list stagger" id="ex-list" role="tablist" aria-label="Exercises" aria-orientation="vertical"><button type="button" role="tab" id="ex-tab-0" data-i="0" aria-selected="true" aria-controls="ex-panel" tabindex="0"><span class="num" aria-hidden="true">01</span>Biceps Curl</button><button type="button" role="tab" id="ex-tab-1" data-i="1" aria-selected="false" aria-controls="ex-panel" tabindex="-1"><span class="num" aria-hidden="true">02</span>Lateral Raise</button><button type="button" role="tab" id="ex-tab-2" data-i="2" aria-selected="false" aria-controls="ex-panel" tabindex="-1"><span class="num" aria-hidden="true">03</span>Barbell Row</button><button type="button" role="tab" id="ex-tab-3" data-i="3" aria-selected="false" aria-controls="ex-panel" tabindex="-1"><span class="num" aria-hidden="true">04</span>Romanian Deadlift</button><button type="button" role="tab" id="ex-tab-4" data-i="4" aria-selected="false" aria-controls="ex-panel" tabindex="-1"><span class="num" aria-hidden="true">05</span>Incline Dumbbell Press</button></div>
+      <div class="ex-panel" id="ex-panel" role="tabpanel" aria-labelledby="ex-tab-0">
+        <div class="ex-info">
+          <div><h3 id="ex-name"></h3><p class="ex-eq" id="ex-eq"></p></div>
+          <div><h4>Main muscles</h4><ul class="chips" id="ex-main"></ul></div>
+          <div><h4>Supporting muscles</h4><ul class="chips" id="ex-support"></ul></div>
+          <div class="map-key" aria-hidden="true"><span><i class="sw sw-p"></i>Main</span><span><i class="sw sw-s"></i>Supporting</span><span><i class="sw sw-n"></i>No shape on the map</span></div>
+          <p class="ex-live" id="ex-live" role="status" aria-live="polite"></p>
+          <div><h4>What the app checks</h4><ul class="faults" id="ex-faults"></ul></div>
+        </div>
+        <div class="ex-map">
+          <div class="atlas-toggle" role="group" aria-label="Body view"><button type="button" data-side="front" aria-pressed="true">Front</button><button type="button" data-side="back" aria-pressed="false">Back</button></div>
+          <div class="atlas-pair">
+            <figure class="atlas-fig" id="fig-front"><div class="atlas-box" id="atlas-front"></div><figcaption>Front</figcaption></figure>
+            <figure class="atlas-fig" id="fig-back"><div class="atlas-box" id="atlas-back"></div><figcaption>Back</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="s-proof" aria-label="The app in numbers">
+  <div class="wrap proof stagger">
+    <div><b class="count" data-count="33"><span class="vh">33</span><span aria-hidden="true">33</span></b><span>keypoints tracked on your body</span></div>
+    <div><b class="count" data-count="5"><span class="vh">5</span><span aria-hidden="true">5</span></b><span>gym exercises, and no more</span></div>
+    <div><b class="count" data-count="30"><span class="vh">30</span><span aria-hidden="true">30</span></b><span>day plan built from your level, equipment and areas to avoid</span></div>
+    <div><b>0</b><span>videos or images saved or uploaded</span></div>
+  </div>
+</section>
+
+<section class="section s-dl" id="download" aria-labelledby="dl-title">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2 id="dl-title">Download for Android</h2>
+      <p class="lede">Trainova Fit isn't on the Play Store yet. Download the APK here and install it in about a minute.</p>
+    </div>
+    <div class="dl-grid">
+      <div class="rel">
+        <h3>Latest release</h3>
+        <a class="btn" data-apk  href="https://github.com/trainova-fit/trainova-fit-release/releases/latest/download/trainova-fit.apk"><svg class="dl" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg><span class="btn-label"><b data-label>Download APK</b><small>Trainova Fit Android</small></span></a>
+        <p class="specs">
+          <span data-spec hidden>Version <b class="mono" data-k="version"></b></span>
+          <span data-spec hidden>Size <b data-k="size"></b></span>
+          <span data-spec hidden>Released <b data-k="date"></b></span>
+          <span>Android <b>10</b> and above</span>
+        </p>
+        <p class="whats" data-spec hidden><strong>What's new</strong><span data-k="notes"></span></p>
+        <p class="sha" data-spec hidden><span>SHA-256</span><span class="mono" data-k="sha"></span><button class="copy" type="button" id="copy-sha">Copy</button></p>
+        <div id="history" hidden><ul></ul></div>
+        <p class="links"><a data-href="releases" href="https://github.com/trainova-fit/trainova-fit-release/releases">All releases on GitHub</a></p>
+      </div>
+      <div class="qr">
+        <img src="assets/qr.svg" alt="QR code for trainova-fit.github.io/trainova-fit-release" width="208" height="208" loading="lazy">
+        <p><strong>On a computer?</strong>Scan this with your Android phone to open this page there.</p>
+      </div>
+    </div>
+    <div class="install" id="install">
+      <div class="install-intro reveal">
+        <h3>Install in five steps</h3>
+        <p>Android will ask you to confirm a few times. This is normal for any app you download from a website. It takes about a minute.</p>
+      </div>
+      <ol class="steps stagger"><li><span class="num" aria-hidden="true">1</span><div><h4>Download the APK</h4><p>Tap <b>Download APK</b> at the top of this page. Chrome may warn that the file might be harmful. Chrome shows this for every APK file, so tap <b>Download anyway</b>.</p></div></li><li><span class="num" aria-hidden="true">2</span><div><h4>Open the file</h4><p>When the download finishes, tap <b>Open</b> on the pop-up or the notification. If you miss it, open your <b>Files</b> app and look in <b>Downloads</b>.</p></div></li><li><span class="num" aria-hidden="true">3</span><div><h4>Allow installs from your browser</h4><p>The first time, Android asks you to allow apps from this source. Tap <b>Settings</b>, turn on <b>Allow from this source</b>, then go back.</p><p class="note">You only do this once. You can turn it off again after installing.</p></div></li><li><span class="num" aria-hidden="true">4</span><div><h4>Tap Install</h4><p>If <b>Play Protect</b> shows a warning, tap <b>More details</b>, then <b>Install anyway</b>. It warns about apps that aren't from the Play Store. It doesn't mean the app is unsafe.</p><p class="note">Buttons have slightly different names on <b>Samsung, Xiaomi, Oppo and Vivo</b> phones. The steps are the same.</p></div></li><li><span class="num" aria-hidden="true">5</span><div><h4>Open the app and start training</h4><p>Open Trainova Fit, explore the app, and start your first exercise. When asked, allow camera access and choose <b>While using the app</b>, so Trainova Fit can see your form.</p><p class="note">Future updates arrive inside the app, so you only need this page for the first install.</p></div></li></ol>
+      <details class="stuck"><summary>Stuck?</summary><dl><div><dt>"App not installed"</dt><dd>There may not be enough free storage, or an early test build is still installed. Free up some space or uninstall the old copy, then try again.</dd></div><div><dt>Nothing happens when I tap the file</dt><dd>Open it from the <b>Files</b> app instead of the browser, and allow that app in step 3.</dd></div><div><dt>The update failed in the app</dt><dd>Check that you're online and have free storage, then try again from <b>Settings → System → Updates</b>. Still failing? Download the newest version from this page and install it over the old one. Your data stays.</dd></div><div><dt>Asked to uninstall when updating</dt><dd>You shouldn't be. Updates install over the current app. It only happens with early test builds, which were signed with a different key. Uninstall that copy once, install the latest version, and later updates work normally.</dd></div><div><dt>I have an iPhone</dt><dd>Trainova Fit is Android only for now.</dd></div><div><dt>Something else</dt><dd>Email <span class="mono">trainovafitsupport@gmail.com</span> with your phone model, Android version and a screenshot.</dd></div></dl></details>
+    </div>
+  </div>
+</section>
+
+<section class="section s-setup" id="setup" aria-labelledby="setup-title">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2 id="setup-title">Set up your phone so it can see you</h2>
+    </div>
+    <div class="setup-grid">
+      <ul class="setup-card reveal">
+        <li><b>Whole body in frame</b>Head to feet, with a little space above and below. If your feet are cut off, move the phone back.</li>
+        <li><b>Phone upright and steady</b>Prop it in portrait mode at about waist height, around 2 to 3 metres away. A water bottle or bench works if you don't have a stand.</li>
+        <li><b>Light in front of you</b>Avoid standing in front of a bright window. Backlight hides your joints.</li>
+        <li><b>Keep the space in front of you clear</b>People walking or standing between you and your phone can block the camera and interrupt the tracking.</li>
+        <li><b>Sound on</b>Turn your volume up or wear earphones. Your coach speaks corrections out loud, and with your phone a few steps away, cues are easy to miss over gym music.</li>
+      </ul>
+      <div class="setup-fig"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" class="setup-svg" role="img" aria-label="Phone upright at waist height, about 2 to 3 metres from you, with your whole body in view of the camera">
+  <rect width="640" height="360" rx="24" class="su-panel"/>
+  <rect x="32" y="300" width="470" height="2" rx="1" class="su-floor"/>
+  <g class="su-cone">
+    <path d="M123 176 L470 58 L470 304 Z" fill="#2F8CFF" fill-opacity=".12"/>
+    <path d="M123 176 L470 58 M123 176 L470 304" stroke="#7FB6FF" stroke-opacity=".55" stroke-width="1.5" fill="none"/>
+  </g>
+  <g stroke="#5A6B95" stroke-width="4" stroke-linecap="round">
+    <path d="M111 212 L88 299"/><path d="M111 212 L134 299"/><path d="M111 212 L111 299"/>
+  </g>
+  <rect x="104" y="204" width="14" height="10" rx="3" fill="#5A6B95"/>
+  <rect x="100" y="148" width="23" height="58" rx="6" fill="#0B1630" stroke="#F4F7FF" stroke-width="2.5"/>
+  <circle cx="121" cy="160" r="2.6" fill="#2F8CFF"/>
+  <ellipse cx="410" cy="302" rx="42" ry="5" fill="#000" fill-opacity=".28"/>
+  <path d="M419 126 L423 162 L425 190" stroke="#C99877" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <circle cx="425" cy="197" r="8.5" fill="#5A6B95"/>
+  <path d="M415 194 L421 245 L417 289" stroke="#C99877" stroke-width="15" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <rect x="397" y="287" width="27" height="11" rx="5" fill="#C9D3EA"/>
+  <path d="M407 194 L401 245 L405 289" stroke="#E8B996" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <rect x="385" y="288" width="28" height="12" rx="5" fill="#F4F7FF"/>
+  <rect x="393" y="178" width="35" height="38" rx="11" fill="#1E2E5C"/>
+  <path d="M400 116 Q 394 150 396 188 L429 188 Q 431 150 424 116 Q 412 110 400 116 Z" fill="#2F8CFF"/>
+  <rect x="405" y="102" width="11" height="16" rx="4" fill="#E8B996"/>
+  <circle cx="414" cy="88" r="16.5" fill="#1B2440"/>
+  <circle cx="408" cy="93" r="15" fill="#E8B996"/>
+  <circle cx="394" cy="96" r="3" fill="#E8B996"/>
+  <path d="M410 124 L407 168 L385 141" stroke="#E8B996" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <circle cx="383" cy="139" r="11" fill="#AEBBD9" stroke="#5A6B95" stroke-width="2"/>
+  <circle cx="383" cy="139" r="4" fill="#5A6B95"/>
+  <g class="su-kp">
+    <g stroke="#4ADE80" stroke-width="2" stroke-opacity=".9" fill="none">
+      <path d="M410 124 L407 168 L385 141"/>
+      <path d="M410 124 L410 194 L401 245 L405 289"/>
+    </g>
+    <g fill="#4ADE80" stroke="#0B1630" stroke-width="1.5">
+      <circle cx="410" cy="124" r="4.5"/><circle cx="407" cy="168" r="4.5"/>
+      <circle cx="385" cy="141" r="4.5"/><circle cx="410" cy="194" r="4.5"/><circle cx="401" cy="245" r="4.5"/><circle cx="405" cy="289" r="4.5"/>
+    </g>
+  </g>
+  <g font-family="Plus Jakarta Sans, system-ui, sans-serif">
+    <text x="40" y="120" class="su-t1" font-size="13" font-weight="700">Phone upright</text>
+    <text x="40" y="137" class="su-t2" font-size="13.5">at waist height</text>
+    <g class="su-dim" stroke-width="1.5"><path d="M111 326 H405"/><path d="M111 319 V333"/><path d="M405 319 V333"/></g>
+    <rect x="203" y="316" width="112" height="22" rx="11" class="su-panel"/>
+    <text x="259" y="331.5" text-anchor="middle" class="su-t1" font-size="13" font-weight="700">about 2 to 3 m</text>
+  </g>
+  <g font-family="Plus Jakarta Sans, system-ui, sans-serif">
+    <rect x="516" y="44" width="104" height="196" rx="16" fill="#04070F" stroke="#F4F7FF" stroke-opacity=".22"/>
+    <rect x="523" y="51" width="90" height="182" rx="11" fill="#1B2A52"/>
+    <rect x="523" y="198" width="90" height="35" fill="#22325E"/>
+    <ellipse cx="568" cy="213" rx="22" ry="3.5" fill="#000" fill-opacity=".3"/>
+    <path d="M556 100 L551 128 L549 150" stroke="#E8B996" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M562 156 L561 184 L561 208" stroke="#E8B996" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M575 156 L576 184 L576 208" stroke="#E8B996" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <rect x="553" y="207" width="13" height="6" rx="3" fill="#F4F7FF"/>
+    <rect x="571" y="207" width="13" height="6" rx="3" fill="#F4F7FF"/>
+    <rect x="553" y="146" width="31" height="20" rx="7" fill="#1E2E5C"/>
+    <path d="M557 98 Q 555 125 556 150 L581 150 Q 582 125 580 98 Q 568 94 557 98 Z" fill="#2F8CFF"/>
+    <rect x="565" y="88" width="7" height="10" rx="3" fill="#E8B996"/>
+    <circle cx="568.5" cy="78" r="10.5" fill="#1B2440"/>
+    <circle cx="568.5" cy="81" r="9.5" fill="#E8B996"/>
+    <path d="M581 100 L589 124 L583 104" stroke="#E8B996" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <rect x="574" y="99" width="17" height="5" rx="2.5" fill="#AEBBD9"/>
+    <rect x="572" y="96" width="5" height="11" rx="2" fill="#5A6B95"/>
+    <rect x="588" y="96" width="5" height="11" rx="2" fill="#5A6B95"/>
+    <g class="su-kp">
+      <g stroke="#4ADE80" stroke-width="1.5" fill="none">
+        <path d="M556 100 L581 100 M556 100 L551 128 L549 150 M581 100 L589 124 L583 104 M556 100 L562 156 M581 100 L575 156 M562 156 L575 156 M562 156 L561 184 L561 208 M575 156 L576 184 L576 208"/>
+      </g>
+      <g fill="#4ADE80">
+        <circle cx="556" cy="100" r="2.8"/><circle cx="581" cy="100" r="2.8"/>
+        <circle cx="551" cy="128" r="2.8"/><circle cx="549" cy="150" r="2.8"/><circle cx="589" cy="124" r="2.8"/><circle cx="583" cy="104" r="2.8"/>
+        <circle cx="562" cy="156" r="2.8"/><circle cx="575" cy="156" r="2.8"/><circle cx="561" cy="184" r="2.8"/><circle cx="576" cy="184" r="2.8"/>
+        <circle cx="561" cy="208" r="2.8"/><circle cx="576" cy="208" r="2.8"/>
+      </g>
+    </g>
+    <g stroke="#F4F7FF" stroke-opacity=".7" stroke-width="2" fill="none" stroke-linecap="round">
+      <path d="M531 66 V60 H537"/><path d="M599 60 H605 V66"/><path d="M531 216 V222 H537"/><path d="M599 222 H605 V216"/>
+    </g>
+    <text x="568" y="262" text-anchor="middle" class="su-t1" font-size="13" font-weight="700">What the camera sees</text>
+    <text x="568" y="281" text-anchor="middle" class="su-t2" font-size="13">Head to feet in frame</text>
+  </g>
+</svg></div>
+    </div>
+  </div>
+</section>
+
+<section class="section s-priv" id="privacy" aria-labelledby="priv-title">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2 id="priv-title">What the app sees and keeps</h2>
+    </div>
+    <div class="priv-grid stagger"><div class="card"><h3>Camera and voice</h3><ul><li><b>Camera.</b> Frames are processed on your phone. Video and images are never recorded, saved or uploaded.</li><li><b>Voice coaching.</b> Pre-recorded clips come with the app, with your phone's text-to-speech as a fallback.</li><li><b>Microphone.</b> Never used. The camera runs with audio off.</li><li><b>Permissions.</b> The app asks for camera access. Install unknown apps is asked once, only so the app can install its own updates.</li></ul></div><div class="card"><h3>Your data</h3><ul><li><b>Saved data.</b> Your account, profile, workouts and sets (reps, weight, form score, flagged corrections, RPE), steps, streaks and XP. It is stored over encrypted connections. If you are offline, set writes wait on your phone until a connection returns.</li><li><b>Visible to others.</b> Your display name and XP appear on the leaderboard. A Weekly Recap is shared with friends, and you can turn it off.</li></ul></div><div class="card sig"><h3>Account and updates</h3><ul><li><b>Sign-in.</b> Google, or email and password. Email sign-up sends a confirmation link, and a reset link if you need one. Before sign-up, only the part of your email after the @ is checked with Google Public DNS.</li><li><b>Update check.</b> A plain request to GitHub at most every 6 hours, with no personal or workout data.</li><li><b>Age and internet.</b> You must be 18 or older, and the app needs an internet connection.</li><li><b>No ads and no data selling.</b> The app follows the Data Privacy Act of 2012 (RA 10173).</li></ul></div></div>
+  </div>
+</section>
+
+<section class="section s-faq" id="faq" aria-labelledby="faq-title">
+  <div class="wrap">
+    <div class="section-head reveal"><h2 id="faq-title">Common questions</h2></div>
+    <div class="faq reveal"><details><summary>How do I update the app?</summary><div class="ans"><p>Updates happen inside the app. Trainova Fit checks for a new version when you open it and shows an Update dialog with what changed. Tap <b>Update</b>, then <b>Install</b> when Android asks. You can also check yourself at <b>Settings → System → Updates → Check for updates</b>.</p><p>You don't need to uninstall first, and your data stays. The first time, Android asks you to allow installs from Trainova Fit. If an update ever fails, download the latest APK from this page and install it over the old one. <a data-href="releases" href="https://github.com/trainova-fit/trainova-fit-release/releases">All releases</a> lists every change.</p></div></details><details><summary>Which Android versions work?</summary><div class="ans"><p>Android 10 and above.</p></div></details><details><summary>Is the APK safe?</summary><div class="ans"><p>The APK is published on GitHub by the Trainova Fit team and signed with the team's own key. Each release lists its SHA-256 checksum so you can check the file wasn't changed, and Android only accepts an update signed with that same key. The warnings you see come from Android, which shows them for every app installed outside the Play Store.</p></div></details><details><summary>Why does it need the camera?</summary><div class="ans"><p>The camera tracks your joints while you train. Video is processed on your phone. Trainova Fit doesn't record or upload your video.</p></div></details><details><summary>What equipment do I need?</summary><div class="ans"><p>All you need is your phone and something to prop it up with, plus the weights for your workout. There is no wearable to buy.</p><p><b>Earphones help.</b> Your coach speaks corrections out loud, and your phone is usually a few steps away, so cues are easy to miss over gym music. Trainova Fit doesn't need any extra permission for earphones.</p><p><b>Wear fitted clothes.</b> The camera follows your joints, so close-fitting pants and a fitted top help it see your knees, hips and elbows. Very baggy pants or loose tops can hide them and make tracking less steady.</p></div></details><details><summary>Does it replace a coach?</summary><div class="ans"><p>No. Trainova Fit gives exercise guidance on five exercises. It isn't medical advice. If something hurts, stop, and follow your gym's safety rules.</p></div></details><details><summary>Something isn't working</summary><div class="ans"><p>Check the <a href="#install">Stuck? list in the install steps</a> first. If that doesn't help, email <span class="mono">trainovafitsupport@gmail.com</span> with your phone model, Android version and a screenshot.</p></div></details><details><summary>How do I report a bug?</summary><div class="ans"><p>In the app, open the Profile tab, then <b>Help &amp; Feedback</b>, then <b>Send feedback</b>. It doesn't include your email, so the team can't reply to it. Email <span class="mono">trainovafitsupport@gmail.com</span> if you want a reply, and tell us your phone model, Android version and what you were doing.</p></div></details><details><summary>Do I need earphones?</summary><div class="ans"><p>No, but they help. Your coach speaks corrections out loud, and your phone is usually a few steps away, so cues are easy to miss over gym music. Trainova Fit doesn't need any extra permission for earphones.</p></div></details></div>
+  </div>
+</section>
+
+<section class="section s-about" id="about" aria-labelledby="about-title">
+  <div class="wrap about-grid">
+    <div class="about-text reveal">
+      <h2 id="about-title">About Trainova Fit</h2>
+      <p>Trainova Fit is an Android app that uses your phone camera to track your movement. It gives real-time form feedback and voice coaching for five gym exercises, and it builds a 30-day plan from your fitness level, equipment and the areas you want to avoid.</p>
+      <p>Made by Team Nova, BSIT 4, Polytechnic University of the Philippines – Lopez Branch.</p>
+      <p>Novi is your coach in the app, and speaks your corrections out loud.</p>
+    </div>
+    <div class="about-card reveal"><img src="assets/brand/novi-large.png" alt="Novi, the Trainova Fit coach mascot" width="280" height="365" loading="lazy"></div>
+  </div>
+</section>
+
+</main>
+
+<footer class="s-footer">
+  <div class="wrap">
+    <span class="wm" role="img" aria-label="Trainova Fit"></span>
+    <div class="foot-grid">
+      <div><h3>Trainova Fit</h3><p>A capstone project by BSIT 4 students.<br>Polytechnic University of the Philippines – Lopez Branch.</p></div>
+      <div><h3>Links</h3><ul><li><a href="#how-it-works">How it works</a></li><li><a href="#exercises">Exercises</a></li><li><a href="#download">Download</a></li><li><a data-href="releases" href="https://github.com/trainova-fit/trainova-fit-release/releases">All releases</a></li><li><a href="#privacy">Privacy</a></li><li><a href="mailto:trainovafitsupport@gmail.com">trainovafitsupport@gmail.com</a></li></ul></div>
+      <div><h3>Please note</h3><p>For exercise guidance only. Follow gym safety rules. Trainova Fit is not a substitute for a coach or medical advice.</p></div>
+    </div>
+    <div class="credit"><p>Muscle illustrations by <a href="https://www.figma.com/community/file/1320468164820924031">Ryan Graves</a>, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, via <a href="https://github.com/kit-g/flutter-body-atlas">flutter_body_atlas</a>.</p></div>
+  </div>
+</footer>
+
+<script src="js/live-glyphs.js"></script>
+<script src="js/live-phone.js"></script>
+<script type="module" src="js/site.js"></script>
+<script type="module" src="js/demo.js"></script>
+<script type="module" src="js/exercises.js"></script>
+<script type="module" src="js/release.js"></script>
+<script>setTimeout(function () { if (!window.__tfReady) document.documentElement.classList.remove("js"); }, 3000);</script>
+</body>
+</html>
