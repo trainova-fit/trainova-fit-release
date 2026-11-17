@@ -35,3 +35,6 @@ Keystore (`*.jks`, `*.keystore`), `key.properties`, `google-services.json`, `.en
 
 ## Review mode
 Open the page with `#review` at the end of the URL to highlight text that still needs confirming.
+
+## Other pages
+- `email-confirmed.html`: Supabase sign-up redirect (Site URL). Don't rename or delete.

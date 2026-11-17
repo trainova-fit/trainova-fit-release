@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>Trainova Fit</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#06122B" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/share/favicon-32.png">
+<script>
+(function () {
+  var d = document.documentElement, t = null;
+  try { t = localStorage.getItem('trainova-fit-theme'); } catch (e) {}
+  if (t !== 'light' && t !== 'dark') t = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+  d.setAttribute('data-theme', t); d.className += ' js';
+})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap">
+<link rel="stylesheet" href="css/site.css">
+<style>
+/* With scripts on, the state text stays hidden until the state is known, so the neutral text never flashes. */
+.js:not(.ready) .ec-state { visibility: hidden; }
+.ec { min-height: calc(100dvh - 72px); display: grid; align-content: center; justify-items: center; gap: 32px; padding-block: 48px; text-align: center; }
+.ec-state { display: grid; gap: 16px; max-width: 34rem; }
+.ec h1 { font-size: clamp(32px, 7vw, 48px); }
+.ec .lede { margin-inline: auto; font-size: 19px; }
+.ec-links { display: grid; justify-items: center; gap: 4px; font-size: 16px; color: var(--text-muted); }
+.ec-links p { margin: 0; }
+.ec-links a { display: inline-block; padding: 11px 4px; font-weight: 600; }
+</style>
+</head>
+<body>
+<header class="hdr"><div class="wrap"><a class="brand" href="./" aria-label="Trainova Fit home"><img class="w-dark" src="assets/brand/wordmark-white.png" alt="Trainova Fit" width="150" height="26"><img class="w-light" src="assets/brand/wordmark-navy.png" alt="" width="150" height="26"></a></div></header>
+<main class="wrap ec" id="main">
+  <div class="ec-state">
+    <h1 id="ec-title">Trainova Fit</h1>
+    <p class="lede" id="ec-body">Open the app to sign in.</p>
+  </div>
+  <div class="ec-links">
+    <p><a href="./#download">Don't have the app yet? Download Trainova Fit</a></p>
+    <p>Need help? <a href="mailto:trainovafitsupport@gmail.com">trainovafitsupport@gmail.com</a></p>
+  </div>
+</main>
+<script>
+/* Reads the redirect params only to pick a fixed text, never shows, stores or sends their values,
+   then strips them from the address bar. */
+(function () {
+  var TEXT = {
+    ok: ['Email confirmed', 'Go back to Trainova Fit and sign in with your email and password.'],
+    err: ['This link expired or was already used', 'Your email may already be confirmed. Open Trainova Fit and sign in. If the app says your email isn’t confirmed yet, request a new email from the app.']
+  };
+  try {
+    var q = new URLSearchParams(location.search), h = new URLSearchParams(location.hash.slice(1));
+    var has = function (k) { return q.has(k) || h.has(k); };
+    var s = ['error', 'error_code', 'error_description'].some(has) ? TEXT.err
+      : (has('code') || has('access_token')) ? TEXT.ok : null;
+    if (s) {
+      document.getElementById('ec-title').textContent = s[0];
+      document.getElementById('ec-body').textContent = s[1];
+      document.title = s[0] + ' | Trainova Fit';
+    }
+    history.replaceState(null, '', location.pathname);
+  } catch (e) {}
+  document.documentElement.classList.add('ready');
+})();
+</script>
+</body>
+</html>
